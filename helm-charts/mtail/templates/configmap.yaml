@@ -1,0 +1,18 @@
+---
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: {{ .Chart.Name }}-configmap
+data:
+  # https://github.com/google/mtail/blob/main/docs/Language.md
+  # https://github.com/google/mtail/tree/main/examples
+  
+  # if youw kubernetes pod with the name example throws OutOfMemory exception in logs, the outOfMemory counter increases
+  example.mtail: |
+    getfilename() !~ /example-/ {
+      stop
+    }
+    counter outOfMemory
+    /OutOfMemory/ {
+      outOfMemory++
+    }
