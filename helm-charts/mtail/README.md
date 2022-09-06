@@ -1,5 +1,5 @@
 this is an initial release of mtail helm chart
-it has a lot of hardcoded stuff and you have to provide your own docker container built for example with following dockerfile:
+it has a lot of hardcoded stuff and you have to provide your own container built for example with following dockerfile:
 
 ```
 ARG debian_ver=11
